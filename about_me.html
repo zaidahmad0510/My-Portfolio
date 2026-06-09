@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaid Ahmad</title>
+    <link rel="stylesheet" href="css/about_me.css">
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cards = document.querySelectorAll("section div");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    cards.forEach(card => observer.observe(card));
+});
+</script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        <div>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="CV/resume.pdf">RESUME</a></li>
+                <li><a href="about_me.html">ABOUT ME</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div>
+                <p>I am a passionate frontend web developer who enjoys creating modern, responsive, and user-friendly
+                    websites. I specialize in HTML, CSS, and JavaScript, and I am constantly improving my skills by
+                    building real-world projects.</p>
+            </div>
+            <div>
+                <p>I am a dedicated web developer with a strong interest in designing and developing interactive and
+                    visually appealing websites. I enjoy turning ideas into reality using clean and efficient code. My
+                    focus is on frontend development using HTML, CSS, and JavaScript. I love building responsive layouts
+                    that work smoothly on all devices and provide a great user experience.</p>
+            </div>
+            <div>
+                <p>I am a creative and detail-oriented frontend developer who is passionate about building modern,
+                    responsive, and visually engaging websites. I enjoy transforming ideas into real digital experiences
+                    using clean and structured code. I have experience working with HTML, CSS, and JavaScript, and I
+                    continuously improve my skills by building projects and learning new technologies. My goal is to
+                    become a full-stack developer and create impactful web applications. I believe in writing simple,
+                    efficient code and focusing on user experience to deliver high-quality web solutions.</p>
+            </div>
+            <div>
+                Hello! I am a frontend web developer who enjoys building websites and learning new technologies. I
+                started my journey with HTML and CSS, and now I am improving my JavaScript skills. I love creating
+                simple and clean designs that are easy to use. I am always trying to improve and build better projects
+                every day.
+            </div>
+        </section>
+        <section class="reveal"></section>
+    </main>
+    <footer>
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        <div class="socials">
+            <button onclick="location.href='https://www.linkedin.com/in/zaid-ahmad-641371415/'">&bull; Linkedin</button>
+            <button onclick="location.href='https://www.instagram.com/_zaid_a._00/'">&bull; Instagram</button>
+
+        </div>
+    </footer>
+</body>
+
+</html>

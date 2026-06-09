@@ -1,0 +1,220 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #111 0%, #0a0a0a 100%);
+    color: #eaeaea;
+    line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 50px;
+    transition: 0.4s;
+}
+
+.logo img:hover {
+    transform: rotate(8deg) scale(1.1);
+}
+
+header ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    transition: 0.3s;
+}
+
+header ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #ff4d4d;
+    transition: 0.3s;
+}
+
+header ul li a:hover {
+    color: #ff4d4d;
+}
+
+header ul li a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    padding: 80px 8%;
+}
+
+/* GRID LAYOUT */
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* =========================
+   CARD STYLE
+========================= */
+
+section div {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+
+    /* IMPORTANT for animation */
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+/* hover effect */
+section div:hover {
+    transform: translateY(-10px);
+    border-color: #ff4d4d;
+    box-shadow: 0 15px 35px rgba(255,77,77,0.2);
+}
+
+/* glow effect */
+section div::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,77,77,0.08), transparent 60%);
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+
+/* TEXT */
+section div {
+    color: #d8d8d8;
+    font-size: 14px;
+}
+
+/* =========================
+   ACTIVE STATE (SCROLL REVEAL)
+========================= */
+
+section div.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* STAGGER EFFECT */
+section div:nth-child(1) {
+    transition-delay: 0.1s;
+}
+section div:nth-child(2) {
+    transition-delay: 0.2s;
+}
+section div:nth-child(3) {
+    transition-delay: 0.3s;
+}
+section div:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+footer .logo img {
+    width: 45px;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.socials button {
+    background: linear-gradient(135deg, #ff2d2d, #ff6a00);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.socials button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,77,77,0.3);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    section {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
